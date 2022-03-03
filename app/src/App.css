@@ -3,6 +3,8 @@
 :root {
   --dark-gray: #121212;
   --primary: white;
+  --accent: #D1D1F5;
+  --secondary: #E6E6FA;
 }
 
 .App {
@@ -78,7 +80,7 @@ h1 {
 .container {
   display: flex;
   flex-direction: column;
-  background-color: #E6E6FA;
+  background-color: var(--secondary);
   opacity: 0.5;
   border-radius: 30px;
   margin: 200px auto 50px auto;
@@ -89,6 +91,7 @@ h1 {
 .inner {
   margin: 30px;
   border: 3px dashed gray;
+  background-color: var(--accent);
 }
 #icon {
   padding: 0 20px;
@@ -96,7 +99,7 @@ h1 {
 #upload-icon {
   font-size: 100px;
   padding: 60px;
-  margin: 30px 0;
+  margin: 30px 0 10px 0;
 }
 
 #text-box {
@@ -106,12 +109,11 @@ h1 {
   margin: 10px auto 40px auto;
   cursor: pointer;
   background-color: var(--primary);
-  font-size: 20px;
-
+  font-size: 21px;
 }
 .custom-file-upload {
   cursor: pointer;
-  color: black;
+  font-weight: 500;
   
 }
 .box {

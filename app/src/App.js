@@ -10,6 +10,9 @@ import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
+  function  fileSelectionHandler(event) {
+    console.log(event.target.files[0])
+  }
   return (
     <div className="App">
       <section>
@@ -31,10 +34,8 @@ function App() {
               <FontAwesomeIcon icon={faCloudArrowUp} id='upload-icon'/>
             </div>
             <div id='text-box'>
-              {/* <input type="file" /> */}
-              {/* <h1>UPLOAD RESUME</h1> */}
-              <label class="custom-file-upload">
-                <input type="file"/>
+              <label className="custom-file-upload">
+                <input type="file" onChange={fileSelectionHandler}/>
                 UPLOAD RESUME
             </label>
             </div>
