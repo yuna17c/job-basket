@@ -1,18 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
-import {faFacebook} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import {} from ;
 import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { Component } from 'react';
 
-function App() {
-  function  fileSelectionHandler(event) {
-    console.log(event.target.files[0])
+class App extends Component {
+  state = {
+    selectedFile: null
   }
+
+  fileSelectionHandler = event => {
+    console.log(event.target.files[0])
+    this.setState ({
+      selectedFile:event.target.files[0]
+    })
+    const [file] = event.target.files;
+    const { name: name } = file;
+    const fileName = `${name}`;
+    document.querySelector('.file-name').textContent = fileName;
+    console.log(fileName)
+  }
+  fileUploadHandler = (e) => {
+    console.log(e)
+  };
+  
+  render() {
   return (
     <div className="App">
       <section>
@@ -33,32 +48,43 @@ function App() {
             <div id='image-box'>
               <FontAwesomeIcon icon={faCloudArrowUp} id='upload-icon'/>
             </div>
-            <div id='text-box'>
-              <label className="custom-file-upload">
-                <input type="file" onChange={fileSelectionHandler}/>
-                UPLOAD RESUME
-            </label>
+            <h3 className="file-name">Upload your resume</h3>
+            <div id='uploads'>
+              <div id='text-box'>
+                <label className="custom-file-upload">
+                  <input type="file" onChange={this.fileSelectionHandler} id='file'/>
+                  BROWSE 
+                </label>
+                <script src="./input.js"></script>
+              </div>
+              <div id='text-box'>
+                <button id='submit-button' onClick={this.fileUploadHandler}>SUBMIT</button>
+              </div>
             </div>
           </div>
         </div>
         <div className='box'>
           <div className='cell'>
             <FontAwesomeIcon icon={faLightbulb} id="box-icon"/>
-            <h2>Easily find your next opportunity.</h2>
+            <h2>Find your next opportunity.</h2>
+            <p>Explore the best options you have.</p>
           </div>
           <div className='cell'>
             <FontAwesomeIcon icon={faThumbsUp} id="box-icon"/>
-            <h2>We care about your privacy!</h2>
+            <h2>We care about your privacy.</h2>
+            <p>All your files are kept safe and will be deleted.</p>
           </div>
           <div className='cell'>
             <FontAwesomeIcon icon={faFileLines} id="box-icon"/>
-            <h2>Millions of resources.</h2>
+            <h2>Credible resources.</h2>
+            <p>Job postings are 100% credible.</p>
           </div>
         </div>
       </header>
       
     </div>
   );
+  }
 }
 
 export default App;

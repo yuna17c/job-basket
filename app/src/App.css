@@ -98,24 +98,27 @@ h1 {
 }
 #upload-icon {
   font-size: 100px;
-  padding: 60px;
-  margin: 30px 0 10px 0;
+  padding-top: 60px;
+  margin: 30px 0 20px 0;
 }
 
 #text-box {
   text-align: center;
-  padding: 7px 0;
-  width: 300px;
-  margin: 10px auto 40px auto;
-  cursor: pointer;
+  padding: 4px 0;
+  width: 180px;
+  margin-bottom: 40px;
   background-color: var(--primary);
   font-size: 21px;
+}
+label {
+  font-family: 'Baloo 2';
+  font-weight: 600;
 }
 .custom-file-upload {
   cursor: pointer;
   font-weight: 500;
-  
 }
+
 .box {
   width: 99%;
   display: flex;
@@ -125,24 +128,47 @@ h1 {
   width: 33%;
   height: 200px;
   padding: 30px;
-  /* border: black 1px solid; */
 }
 
 #box-icon {
   font-size: 50px;
+  margin-bottom: 10px;
 }
 
 h2 {
   font-size: 20px;
 }
 
-input[type="file"] {
-  display: none;
+#uploads {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* .custom-file-upload {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
+#submit-button {
+  border: none;
+  font-size: 21px;
   cursor: pointer;
-} */
+  font-weight: 600;
+  font-family: 'Baloo 2';
+  background-color: var(--primary);
+}
+
+h3 {
+  font-family: 'Baloo 2';
+  font-weight: 600;
+  margin-bottom: 40px;
+  font-size: 25px;
+}
+
+#file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+p {
+  font-size: 15px;
+}
