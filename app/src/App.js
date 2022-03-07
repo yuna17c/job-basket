@@ -6,6 +6,9 @@ import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { Component } from 'react';
+import {firebaseApp} from './base'
+import {storageRef} from './base'
+import { ref, uploadBytes } from "firebase/storage";
 
 class App extends Component {
   state = {
@@ -24,8 +27,12 @@ class App extends Component {
     console.log(fileName)
   }
   fileUploadHandler = (e) => {
-    console.log(e)
-  };
+        const file = e.target.files[0];
+        const fileRef = ref(storageRef, file.name);
+        uploadBytes(fileRef, file).then(() =>{
+            console.log("Uploaded a file successfully")
+        })
+    }
   
   render() {
   return (
@@ -51,14 +58,7 @@ class App extends Component {
             <h3 className="file-name">Upload your resume</h3>
             <div id='uploads'>
               <div id='text-box'>
-                <label className="custom-file-upload">
-                  <input type="file" onChange={this.fileSelectionHandler} id='file'/>
-                  BROWSE 
-                </label>
-                <script src="./input.js"></script>
-              </div>
-              <div id='text-box'>
-                <button id='submit-button' onClick={this.fileUploadHandler}>SUBMIT</button>
+                <input type="file" onChange={this.fileUploadHandler}/>
               </div>
             </div>
           </div>
