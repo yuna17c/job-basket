@@ -1,6 +1,8 @@
 import './App.css';
+import fontawesome from '@fortawesome/fontawesome'
+import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+import { faCoffee, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +11,7 @@ import { Component } from 'react';
 import {firebaseApp} from './base'
 import {storageRef} from './base'
 import { ref, uploadBytes } from "firebase/storage";
-
+// fontawesome.library.add(faCoffee);
 class App extends Component {
   state = {
     selectedFile: null
@@ -33,8 +35,8 @@ class App extends Component {
             console.log("Uploaded a file successfully")
         })
     }
-  
   render() {
+
   return (
     <div className="App">
       <section>
@@ -49,7 +51,6 @@ class App extends Component {
         </div>
       </section>
       <header className='App-header'>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <div className='container'>
           <div className='inner'>
             <div id='image-box'>
@@ -57,8 +58,8 @@ class App extends Component {
             </div>
             <h3 className="file-name">Upload your resume</h3>
             <div id='uploads'>
-              <div id='text-box'>
-                <input type="file" onChange={this.fileUploadHandler}/>
+              <div class="fileUpload">
+                <input type="file" onChange={this.fileUploadHandler} class="upload"/>
               </div>
             </div>
           </div>
@@ -72,7 +73,7 @@ class App extends Component {
           <div className='cell'>
             <FontAwesomeIcon icon={faThumbsUp} id="box-icon"/>
             <h2>We care about your privacy.</h2>
-            <p>All your files are kept safe and will be deleted.</p>
+            <p>All your files are kept safe and will be deleted within a week.</p>
           </div>
           <div className='cell'>
             <FontAwesomeIcon icon={faFileLines} id="box-icon"/>
