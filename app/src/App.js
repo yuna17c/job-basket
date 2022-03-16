@@ -11,7 +11,9 @@ import { Component } from 'react';
 import {firebaseApp} from './base'
 import {storageRef} from './base'
 import { ref, uploadBytes } from "firebase/storage";
+import myData from 'C:\Users\joshu\Desktop\ResumeStorage\dataframe.json';
 // fontawesome.library.add(faCoffee);
+
 class App extends Component {
   state = {
     selectedFile: null
@@ -28,12 +30,16 @@ class App extends Component {
     document.querySelector('.file-name').textContent = fileName;
     console.log(fileName)
   }
+  
   fileUploadHandler = (e) => {
         const file = e.target.files[0];
         const fileRef = ref(storageRef, file.name);
         uploadBytes(fileRef, file).then(() =>{
-            console.log("Uploaded a file successfully")
+            console.log("Uploaded a file successfully :D")
         })
+        console.log(myData);
+
+        
     }
   render() {
 
@@ -60,6 +66,11 @@ class App extends Component {
             <div id='uploads'>
               <div class="fileUpload">
                 <input type="file" onChange={this.fileUploadHandler} class="upload"/>
+                <div className="App">
+                {
+                  data && data.length>0 && data.map((item)=><p>{item.about}</p>)
+                }
+                </div>
               </div>
             </div>
           </div>
