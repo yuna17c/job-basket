@@ -40,12 +40,16 @@ class App extends Component {
     document.querySelector('.file-name').textContent = fileName;
     console.log(fileName)
   }
+  
   fileUploadHandler = (e) => {
         const file = e.target.files[0];
         const fileRef = ref(storageRef, file.name);
         uploadBytes(fileRef, file).then(() =>{
-            console.log("Uploaded a file successfully")
+            console.log("Uploaded a file successfully :D")
         })
+        console.log(myData);
+
+        
     }
 
   render() {
