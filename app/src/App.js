@@ -11,7 +11,19 @@ import { Component } from 'react';
 import {firebaseApp} from './base'
 import {storageRef} from './base'
 import { ref, uploadBytes } from "firebase/storage";
+import myData from './dataframe'
+//C:\Users\joshu\job-basket\app
 // fontawesome.library.add(faCoffee);
+
+console.log(myData.links["1"])
+
+for (var key in myData) {
+  var dict = myData[key];
+  for(var key2 in dict) {
+    console.log(key2)
+  }
+}
+
 class App extends Component {
   state = {
     selectedFile: null
@@ -35,56 +47,60 @@ class App extends Component {
             console.log("Uploaded a file successfully")
         })
     }
-  render() {
 
-  return (
-    <div className="App">
-      <section>
-        <div className="nav">
-          <div className='nav-item'>
-            <h1><FontAwesomeIcon icon={faShoppingBag} id="icon"/>JOB BASKET</h1>
-          </div>
-          <div className='nav-item'>
-            <div><h1>REGISTER</h1></div>
-            <div><h1>LOG IN</h1></div>
-          </div>
-        </div>
-      </section>
-      <header className='App-header'>
-        <div className='container'>
-          <div className='inner'>
-            <div id='image-box'>
-              <FontAwesomeIcon icon={faCloudArrowUp} id='upload-icon'/>
+  render() {
+    console.log(myData)
+    return (
+      <div className="App">
+        <section>
+          <div className="nav">
+            <div className='nav-item'>
+              <h1><FontAwesomeIcon icon={faShoppingBag} id="icon"/>JOB BASKET</h1>
             </div>
-            <h3 className="file-name">Upload your resume</h3>
-            <div id='uploads'>
-              <div class="fileUpload">
-                <input type="file" onChange={this.fileUploadHandler} class="upload"/>
+            <div className='nav-item'>
+              <div><h1>REGISTER</h1></div>
+              <div><h1>LOG IN</h1></div>
+            </div>
+          </div>
+        </section>
+        <header className='App-header'>
+          <div className='container'>
+            <div className='inner'>
+              <div id='image-box'>
+                <FontAwesomeIcon icon={faCloudArrowUp} id='upload-icon'/>
+              </div>
+              <h3 className="file-name">Upload your resume</h3>
+              <div id='uploads'>
+                <div class="fileUpload">
+                  <input type="file" onChange={this.fileUploadHandler} class="upload"/>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className='box'>
-          <div className='cell'>
-            <FontAwesomeIcon icon={faLightbulb} id="box-icon"/>
-            <h2>Find your next opportunity.</h2>
-            <p>Explore the best options you have.</p>
+          <div className='box'>
+            <div className='cell'>
+              <FontAwesomeIcon icon={faLightbulb} id="box-icon"/>
+              <h2>Find your next opportunity.</h2>
+              <p>Explore the best options you have.</p>
+            </div>
+            <div className='cell'>
+              <FontAwesomeIcon icon={faThumbsUp} id="box-icon"/>
+              <h2>We care about your privacy.</h2>
+              <p>All your files are kept safe and will be deleted within a week.</p>
+            </div>
+            <div className='cell'>
+              <FontAwesomeIcon icon={faFileLines} id="box-icon"/>
+              <h2>Credible resources.</h2>
+              <p>Job postings are 100% credible.</p>
+            </div>
           </div>
-          <div className='cell'>
-            <FontAwesomeIcon icon={faThumbsUp} id="box-icon"/>
-            <h2>We care about your privacy.</h2>
-            <p>All your files are kept safe and will be deleted within a week.</p>
-          </div>
-          <div className='cell'>
-            <FontAwesomeIcon icon={faFileLines} id="box-icon"/>
-            <h2>Credible resources.</h2>
-            <p>Job postings are 100% credible.</p>
-          </div>
-        </div>
-      </header>
+        </header>
+        <ul>
+            {jobList.map(link => (<li>{link}</li>))}
+        </ul>
+      </div>
       
-    </div>
-  );
+    );
   }
 }
 
