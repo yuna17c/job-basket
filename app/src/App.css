@@ -168,3 +168,28 @@ h3 {
 p {
   font-size: 15px;
 }
+#result {
+  text-align: left;
+  margin-left:10%;
+}
+ol {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  word-wrap: break-word;
+  margin-bottom: 80px;
+}
+
+ol li {
+  padding: 10px;
+}
+
+ol a {
+  color:#121212;
+  text-decoration: none;
+  transition: color 500ms;
+}
+
+ol a:hover {
+  color: #405e9e
+}
