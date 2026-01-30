@@ -1,5 +1,8 @@
 # Job Basket
 
+## Watch our demo here
+https://youtu.be/YrFTZa_7HOQ
+
 ## Inspiration ☁️:
 Our inspiration came from the difficulty of scrolling through job sites and finding the right job postings that matched our skills. Websites like linkedin and indeed have limited filtering functions that make it difficult to narrow down our search. As Waterloo students who are constantly looking for internship opportunities, we decided to take action.
 
